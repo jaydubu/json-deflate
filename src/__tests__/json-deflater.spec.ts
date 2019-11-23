@@ -1,4 +1,4 @@
-import { compress, decompress } from '../json-compressor';
+import { deflate, restore } from '../json-deflater';
 
 test('compress and decompress object', () => {
   const orig = {
@@ -11,7 +11,7 @@ test('compress and decompress object', () => {
     arrayB: [1, 2, 3],
   };
 
-  const compressed = compress(orig);
+  const compressed = deflate(orig);
   expect(compressed).toEqual({
     data: {
       a: { b: 123, c: 'd' },
@@ -34,7 +34,7 @@ test('compress and decompress object', () => {
     },
   });
 
-  const decompressed = decompress(compressed);
+  const decompressed = restore(compressed);
   expect(decompressed).toEqual(orig);
 });
 
@@ -73,7 +73,7 @@ test('compress and decompress array', () => {
     },
   ];
 
-  const compressed = compress(orig);
+  const compressed = deflate(orig);
   expect(compressed).toEqual({
     data: [
       { a: 'b', c: true, d: 1234, e: 'f' },
@@ -96,6 +96,6 @@ test('compress and decompress array', () => {
     },
   });
 
-  const decompressed = decompress(compressed);
+  const decompressed = restore(compressed);
   expect(decompressed).toEqual(orig);
 });

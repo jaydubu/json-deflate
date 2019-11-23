@@ -1,1 +1,1 @@
-export { compress, decompress } from './json-compressor';
+export { deflate, restore } from './json-deflater';

@@ -11,7 +11,7 @@ interface ICompressionContext {
   origKeyMap: { [key: string]: string };
 }
 
-export function compress(dataToBeCompressed: any): ICompressionResult {
+export function deflate(dataToBeCompressed: any): ICompressionResult {
   if (!dataToBeCompressed) {
     return dataToBeCompressed;
   }
@@ -66,7 +66,7 @@ function toCompactKey(srcKey: string, context: ICompressionContext) {
   return destKey;
 }
 
-export function decompress(dataToBeDecompressed: ICompressionResult): any {
+export function restore(dataToBeDecompressed: ICompressionResult): any {
   if (!dataToBeDecompressed) {
     return dataToBeDecompressed;
   }
