@@ -1,6 +1,6 @@
 {
   "name": "json-deflate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Shrink and restore JSON data",
   "keywords": [
     "json compress decompress shrink zip unzip deflate inflate"
