@@ -1,17 +1,17 @@
 import { KeyGenerator } from './key-generator';
 
-interface ICompressionResult {
+export interface CompressionResult {
   data: any;
   keys: { [key: string]: string };
 }
 
-interface ICompressionContext {
+interface CompressionContext {
   keyGenerator: KeyGenerator;
   newKeyMap: { [key: string]: string };
   origKeyMap: { [key: string]: string };
 }
 
-export function deflate(dataToBeCompressed: any): ICompressionResult {
+export function deflate(dataToBeCompressed: any): CompressionResult {
   if (!dataToBeCompressed) {
     return dataToBeCompressed;
   }
@@ -30,7 +30,7 @@ export function deflate(dataToBeCompressed: any): ICompressionResult {
   };
 }
 
-function deepCompress(data: any, context: ICompressionContext): any {
+function deepCompress(data: any, context: CompressionContext): any {
   if (!data) {
     return data;
   }
@@ -55,7 +55,7 @@ function deepCompress(data: any, context: ICompressionContext): any {
   return data;
 }
 
-function toCompactKey(srcKey: string, context: ICompressionContext) {
+function toCompactKey(srcKey: string, context: CompressionContext) {
   let destKey = context.origKeyMap[srcKey];
   if (!destKey) {
     destKey = context.keyGenerator.next();
@@ -66,7 +66,7 @@ function toCompactKey(srcKey: string, context: ICompressionContext) {
   return destKey;
 }
 
-export function restore(dataToBeDecompressed: ICompressionResult): any {
+export function restore(dataToBeDecompressed: CompressionResult): any {
   if (!dataToBeDecompressed) {
     return dataToBeDecompressed;
   }

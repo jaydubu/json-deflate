@@ -1,1 +1,1 @@
-export { deflate, restore } from './json-deflater';
+export * from './json-deflater';

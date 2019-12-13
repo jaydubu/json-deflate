@@ -1,6 +1,6 @@
 {
   "name": "json-deflate",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "Shrink and restore JSON data",
   "keywords": [],
   "main": "dist/index.js",
