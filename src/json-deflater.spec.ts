@@ -1,4 +1,4 @@
-import { deflate, restore } from '../json-deflater';
+import { deflate, restore } from './json-deflater';
 
 test('compress and decompress object', () => {
   const orig = {
